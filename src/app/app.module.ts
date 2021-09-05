@@ -7,6 +7,8 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,14 @@ import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
     NavbarComponent,
     HomeComponent,
     LoginComponent,
-    QuienSoyComponent
+    QuienSoyComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

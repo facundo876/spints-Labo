@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
+import { AngularFireModule } from '@angular/fire';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { QuienSoyComponent } from './quien-soy/quien-soy.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "usuarios-a9e2d": {
+      "hosting": {
+        "spints-Labo": [
+          "usuarios-a9e2d"
+        ]
+      }
+    }
+  }
+}

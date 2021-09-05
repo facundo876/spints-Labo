@@ -1,1 +1,10 @@
-<p>register works!</p>
+<div class="login">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <h1>Register</h1>
+      <label for="email">Email</label>
+      <input type="email" class="form-control" formControlName="email"/>
+      <label for="password">Password</label>
+      <input type="password" class="form-control" formControlName="password"/>
+      <button type="submit">Register</button>
+    </form>
+  </div>

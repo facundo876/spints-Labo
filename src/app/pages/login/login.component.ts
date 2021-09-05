@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,17 @@ export class LoginComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  public onLogin(){
-    console.log('Form->', this.loginForm.value);
+  public async onLogin(){
+    try{
+      await this.authService.login(this.loginForm.value);
+    }catch(e : any){
+      alert(e.message)
+    }
   }
+
 }

@@ -10,6 +10,12 @@ import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth'
+import { environment } from 'src/environments/environment';
+import { ErrorComponent } from './pages/error/error.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './services/auth/auth.service';
+import { SecureInnerPagesGuard } from './auth/secure-inner-pages.guard';
 
 @NgModule({
   declarations: [
@@ -18,16 +24,18 @@ import { AngularFireModule } from '@angular/fire';
     HomeComponent,
     LoginComponent,
     QuienSoyComponent,
-    RegisterComponent
+    RegisterComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService, SecureInnerPagesGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

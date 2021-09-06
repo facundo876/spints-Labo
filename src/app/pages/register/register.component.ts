@@ -20,10 +20,16 @@ export class RegisterComponent implements OnInit {
   }
 
   public async onRegister(){
+
     try{
-      await this.authService.register(this.registerForm.value);
+      await this.authService.register(this.registerForm.value)
+      .then(()=>{
+        this.authService.login(this.registerForm.value);
+      })
+
     }catch(e:any){
       alert(e.message);
+      
     }
     
   }

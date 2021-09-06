@@ -18,27 +18,25 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
+        this.router.navigate(['home']);
       }
       else{
         localStorage.setItem('user', null!);
         JSON.parse(localStorage.getItem('user')!);
+        this.router.navigate(['login']);
       }
     })
   }
 
-   login(value:any){
+  login(value:any){
 
-    return this.auth.signInWithEmailAndPassword(value.email, value.password)
-      .then(()=>{
-        this.router.navigate(['home']);
-      })
+    return this.auth.signInWithEmailAndPassword(value.email, value.password);
   }
 
   logout(){
     return this.auth.signOut()
       .then(()=>{
         localStorage.removeItem('user');
-        this.router.navigate(['login']);
       })
   }
 

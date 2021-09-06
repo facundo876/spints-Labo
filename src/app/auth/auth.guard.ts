@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { LoginComponent } from '../pages/login/login.component';
 import { AuthService } from '../services/auth/auth.service';
 
 @Injectable({
@@ -10,12 +11,14 @@ export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService, 
               private router: Router) {}
+              
+  @Input() loginComponent?: LoginComponent;
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(this.authService.isLoggedIn !== true){
-        alert("'Access Denied, Login is Required to Access This Page!'");
+        this.loginComponent!.setErrorMessage('Access Denied, Login is Required to Access This Page!');
         this.router.navigate(['/login']);
       }
     return true;

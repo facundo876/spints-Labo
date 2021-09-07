@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { DatabaseService } from 'src/app/services/database/database.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(private authService: AuthService,
-              private router: Router) { }
+              private router: Router
+              ) { }
 
   ngOnInit(): void {
   }
@@ -28,11 +30,11 @@ export class LoginComponent implements OnInit {
 
     }catch(e : any){
       
-      this.setErrorMessage(e.message);
+      this.setErrorMessage = e.message;
     }
   }
 
-  public setErrorMessage(message:string){
+  set setErrorMessage(message:string){
     this.divErrorMessage = message;
     this.error = true;
   }

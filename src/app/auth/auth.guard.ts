@@ -1,3 +1,4 @@
+import { userError } from '@angular/compiler-cli/src/transformers/util';
 import { Injectable, Input } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,16 +11,14 @@ import { AuthService } from '../services/auth/auth.service';
 export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService, 
-              private router: Router) {}
+              private router: Router,
+              private login: LoginComponent) {}
               
-  @Input() loginComponent?: LoginComponent;
-
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(this.authService.isLoggedIn !== true){
-        this.loginComponent!.setErrorMessage('Access Denied, Login is Required to Access This Page!');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login']);     
       }
     return true;
   }

@@ -16,6 +16,8 @@ import { ErrorComponent } from './pages/error/error.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './services/auth/auth.service';
 import { SecureInnerPagesGuard } from './auth/secure-inner-pages.guard';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { DatabaseService } from './services/database/database.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,10 @@ import { SecureInnerPagesGuard } from './auth/secure-inner-pages.guard';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
-  providers: [AuthGuard, AuthService, SecureInnerPagesGuard],
+  providers: [AuthGuard, AuthService, SecureInnerPagesGuard,LoginComponent,DatabaseService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

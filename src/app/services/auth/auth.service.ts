@@ -9,6 +9,7 @@ import { DatabaseService } from '../database/database.service';
 export class AuthService {
 
   userData: any;
+  emailUserloggedin : string = "";
 
   constructor( private auth : AngularFireAuth,
                private router : Router,
@@ -21,11 +22,13 @@ export class AuthService {
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
         this.router.navigate(['home']);
+        this.emailUserloggedin = user.email ? user.email : "";
       }
       else{
         localStorage.setItem('user', null!);
         JSON.parse(localStorage.getItem('user')!);
         this.router.navigate(['login']);
+        this.emailUserloggedin = "";
       }
     })
   }

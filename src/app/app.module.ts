@@ -18,6 +18,10 @@ import { AuthService } from './services/auth/auth.service';
 import { SecureInnerPagesGuard } from './auth/secure-inner-pages.guard';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { DatabaseService } from './services/database/database.service';
+import { WordsComponent } from './words/words.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ChatComponent } from './components/chat/chat.component';
+import { ChatService } from './services/chat/chat.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,9 @@ import { DatabaseService } from './services/database/database.service';
     LoginComponent,
     QuienSoyComponent,
     RegisterComponent,
-    ErrorComponent
+    ErrorComponent,
+    WordsComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +42,16 @@ import { DatabaseService } from './services/database/database.service';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
   ],
-  providers: [AuthGuard, AuthService, SecureInnerPagesGuard,LoginComponent,DatabaseService ],
+  providers: [AuthGuard, 
+              AuthService, 
+              SecureInnerPagesGuard,
+              LoginComponent,
+              DatabaseService,
+              ChatService
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

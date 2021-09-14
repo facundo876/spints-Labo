@@ -1,0 +1,8 @@
+<p>words works!</p>
+<div class="container-fluid" >
+    <div class="row" *ngFor="let row of matrix">
+        <div class="col-1" style="background-color: aqua;" *ngFor="let col of row">
+            <button type="button" class="btn btn-secondary" (click)="SaveLetters(col)">{{col}}</button>
+        </div>
+    </div>
+  </div>

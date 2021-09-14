@@ -24,6 +24,18 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public async QuickAccessLogin(){
+    var value = {email : "facundo@gmail.com", password: "123456"}
+    try{
+
+      await this.authService.login(value)
+    }catch(e : any){
+
+      this.setErrorMessage = e.message;
+    }
+    
+  }
+
   public async onLogin(){
     try{
       await this.authService.login(this.loginForm.value);

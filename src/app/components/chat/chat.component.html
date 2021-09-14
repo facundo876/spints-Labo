@@ -1,0 +1,30 @@
+<div class="mesgs">
+    <div class="msg_history" id="msgHistory">
+       <!--
+      <div class="outgoing_msg">
+        <div class="sent_msg">
+          <p>Apollo University, Delhi, India Test</p>
+          <span class="time_date"> 11:01 AM    |    Today</span> </div>
+      </div>
+        --> 
+      <div class="incoming_msg" *ngFor="let chat of chatService.chats">
+        <div class="received_msg" [ngClass]="{'sent_msg': authService.userData.uid == chat.uid }">
+          
+                <p>{{chat.nombre}}</p>
+                <p>{{chat.text}}</p>
+            <span class="time_date"> 11:01 AM    |    Today</span>
+            
+        </div>
+      </div>
+
+    </div>
+    <div class="type_msg">
+      <div class="input_msg_write">
+        <input type="text" class="write_msg" 
+                [(ngModel)]= "message"
+                (keyup.enter)= "send_menssage()"
+                placeholder="Type a message" />
+        <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>

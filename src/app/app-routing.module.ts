@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { WordsComponent } from './words/words.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard]},
   {path: 'register', component: RegisterComponent},
   {path: 'quiensoy', component: QuienSoyComponent},
+  {path: 'words', component: WordsComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: ErrorComponent}
 ];

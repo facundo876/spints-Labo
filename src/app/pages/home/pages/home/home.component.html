@@ -1,0 +1,12 @@
+<div class="container" >
+    <div class="row mt-2">
+        <div class="col-sm" >
+            <button (click)="onLogOut()">LogOut</button>
+            <h2>Games</h2>
+            <button [routerLink]="['/home/ahorcado']">Ahorcado Game</button>
+        </div>
+        <div class="col-sm">
+            <app-chat></app-chat>
+        </div>
+    </div>
+</div>

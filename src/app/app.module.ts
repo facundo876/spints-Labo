@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
-import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -20,20 +19,17 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { DatabaseService } from './services/database/database.service';
 import { WordsComponent } from './words/words.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { ChatComponent } from './components/chat/chat.component';
 import { ChatService } from './services/chat/chat.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
     LoginComponent,
     QuienSoyComponent,
     RegisterComponent,
     ErrorComponent,
-    WordsComponent,
-    ChatComponent
+    WordsComponent
   ],
   imports: [
     BrowserModule,

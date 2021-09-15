@@ -41,6 +41,4 @@ export class ChatComponent implements OnInit {
                     .then(()=> this.message = "")
                     .catch((err)=> console.error("Error enviar mensaje!", err))
   }
-
-  
 }

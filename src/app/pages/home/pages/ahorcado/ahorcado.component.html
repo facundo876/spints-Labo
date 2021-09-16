@@ -1,1 +1,44 @@
-<p>ahorcado works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-8 d-flex justify-content-end"><h1 >Adivinar la palabra!</h1> </div>
+        <div class="col-4 d-flex justify-content-end">
+            <div class="d-flex justify-content-center align-items-center" >
+                <h2>Vidas</h2>
+                <div class="p-2 m-2  border border-danger rounded"  *ngFor="let v of vidas; let i = index" id="{{'txtVida' + v }}" style="width: 20px; height: 20px; background-color: red;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <div class="p-2 m-2 border border-success rounded" *ngFor="let n of palabraArmada; let i = index" id="{{'txtLetra' + i }}" style="width: 50px; height: 50px;">{{n}}</div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="d-flex justify-content-between">
+            <button *ngFor="let letra of abecedario()" [disabled]="tecladoStatus" (click)="onButtonClick($event)" id="{{'btn' + letra}}"  type="button" class="btn btn-success" >{{letra}}</button>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-5" >
+        <div class="card text-center border-danger" style="width: 18rem;" *ngIf="menuVolveraJugarDerrota">
+            <div class="card-header text-danger" >
+                Perdiste
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Palabra Correcta</h5>
+                <p class="card-text">{{palabraElegida.join('')}}</p>
+                <div class="btn btn-primary" (click)="onVolveraJugar()">Volver a jugar</div>
+            </div>
+        </div>
+        <div class="card text-center border-success" style="width: 18rem;" *ngIf="menuVolveraJugarVictoria">
+            <div class="card-header text-success" >
+                Ganaste
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Palabra Correcta</h5>
+                <p class="card-text">{{palabraElegida.join('')}}</p>
+                <div class="btn btn-primary" (click)="onVolveraJugar()">Volver a jugar</div>
+            </div>
+        </div>
+    </div>
+   
+</div>

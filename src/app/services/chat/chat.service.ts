@@ -19,18 +19,20 @@ export class ChatService {
     this.itemsCollection = this.afs.collection<IMessage>('chats', ref => 
                                                           ref.orderBy('fecha', 'desc').limit(25));  
     return this.itemsCollection.valueChanges().pipe(map((message : IMessage[]) => {
-                                  console.log(message)
+                                  
                                   this.chats = message.reverse();
                                   return this.chats;
                                 }));
   }
 
   addMessage(text :string){
+    console.log();
     let message : IMessage ={
-      nombre : this.authService.userData.email,
+      nombre : (this.authService.userData.email).split('@')[0],
       text: text,
-      fecha: new Date().getTime(),
-      uid: this.authService.userData.uid
+      fecha: new Date().toLocaleString(),
+      uid: this.authService.userData.uid,
+      mail: this.authService.userData.email
     }
 
     return this.itemsCollection.add(message);

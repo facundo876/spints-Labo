@@ -2,6 +2,7 @@
 export interface IMessage{
     nombre:string;
     text:string;
-    fecha?:number;
+    fecha?:string;
     uid?:string;
+    mail?:string;
 }

@@ -5,10 +5,10 @@
         <div class="box-tools pull-right"> <span data-toggle="tooltip" title="" class="badge bg-yellow" data-original-title="3 New Messages">20</span> <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> </button> <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-widget="chat-pane-toggle" data-original-title="Contacts"> <i class="fa fa-comments"></i></button> <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i> </button> </div>
     </div>
     <div class="box-body" >
-        <div class="direct-chat-messages" id="msgHistory">
+        <div class="direct-chat-messages" id="msgHistory" style="height: 430px;">
             <div class="direct-chat-msg" [ngClass]="{'right': authService.userData.uid == chat.uid }" *ngFor="let chat of chatService.chats">
-                <div class="direct-chat-info clearfix"> <span class="direct-chat-name pull-left">{{chat.nombre}}</span> <span class="direct-chat-timestamp pull-right">{{chat.fecha}}</span> </div> 
-                <div class="direct-chat-text">{{chat.text}}</div>
+                <div class="direct-chat-info clearfix" [ngClass]="{'info-user-right': authService.userData.uid == chat.uid }"> <span class="direct-chat-name pull-left">{{chat.nombre}}</span> <span class="direct-chat-timestamp pull-right">{{chat.fecha}}</span> </div> 
+                <div class="direct-chat-text" [ngClass]="{'just-right': authService.userData.uid == chat.uid }">{{chat.text}}</div>
             </div>
         </div>
     </div>

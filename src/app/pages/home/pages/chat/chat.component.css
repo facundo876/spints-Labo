@@ -168,6 +168,10 @@
   .direct-chat-msg {
     margin-bottom: 10px
   }
+    /**/
+  .just-right{
+    justify-content: flex-end;
+  }
   
   .direct-chat-msg,
   .direct-chat-text {
@@ -177,7 +181,10 @@
   .direct-chat-info {
     display: block;
     margin-bottom: 2px;
-    font-size: 12px
+    font-size: 12px;
+  }
+  .info-user-right{
+    text-align: right;
   }
   
   .direct-chat-timestamp {
@@ -233,7 +240,8 @@
     padding: 5px 10px;
     background: #d2d6de;
     border: 1px solid #d2d6de;
-    margin: 5px 0 0 50px;
+    margin: 5px 50 50 0px;
+    margin-right: 50px;
     color: #444
   }
   
@@ -311,8 +319,9 @@
   }
   
   .right .direct-chat-text {
-    margin-right: 50px;
-    margin-left: 0
+    margin-right: 0px;
+    margin-left: 50px;
+    text-align: right;
   }
   
   .box-footer {

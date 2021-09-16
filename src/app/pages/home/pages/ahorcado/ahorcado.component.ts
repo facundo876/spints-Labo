@@ -31,11 +31,6 @@ export class AhorcadoComponent implements OnInit {
     "V","W","X","Y","Z"];
   }
 
-  verificarLetra(letra : string){
-    let elemento = document.getElementById("btn" + letra);
-    
-  }
-
   onButtonClick(event : MouseEvent){
     let value = (event.target as HTMLButtonElement).innerHTML;
     var indices = this.obtenerTodasLasAparicionesDeUnaLetra(value);

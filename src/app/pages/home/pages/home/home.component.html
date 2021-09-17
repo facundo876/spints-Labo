@@ -3,7 +3,7 @@
         <div class="col-sm" >
             <button (click)="onLogOut()">LogOut</button>
             <h2>Games</h2>
-            <button class="btn btn-primary" [ngClass]="{'btn-primary': btnStatus, 'btn-danger': !btnStatus}" [routerLink]="['/home/ahorcado']">Ahorcado Game</button><br>
+            <button class="btn btn-primary" *ngIf="btnStatus; else " [ngClass]="{'btn-primary': btnStatus, 'btn-danger': !btnStatus}" [routerLink]="['/home/ahorcado']">Ahorcado Game</button><br>
             <button class="mt-2" [routerLink]="['/home/mayoromenor']">Mayor o Menor Game</button>
         </div>
         <div class="col-sm">

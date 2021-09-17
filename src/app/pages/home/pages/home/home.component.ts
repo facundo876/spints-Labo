@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class HomeComponent implements OnInit {
 
   chats: Observable<any[]>;
+  btnStatus:boolean = true;
   
   constructor(private authService : AuthService,
               private router: Router,

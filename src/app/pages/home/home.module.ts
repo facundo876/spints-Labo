@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { FormsModule } from '@angular/forms';
 import { MayoroMenorComponent } from './pages/mayoro-menor/mayoro-menor.component';
+import { PreguntadosComponent } from './pages/preguntados/preguntados.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MayoroMenorComponent } from './pages/mayoro-menor/mayoro-menor.componen
     AhorcadoComponent,
     HomeComponent,
     ChatComponent,
-    MayoroMenorComponent
+    MayoroMenorComponent,
+    PreguntadosComponent
   ],
   imports: [
     CommonModule,

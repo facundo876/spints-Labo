@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row text-center mb-1">
+        <div><h3>Preguntados!</h3></div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="card text-center border-success" style="width: 18rem; height: 10rem;" >
+            <div class="card-header text-success" id="optionCorrect" >
+                ?
+            </div>
+            <div class="card-body">
+                <img [src]="optionCorrect.imagen" width="90" height="90" alt="">
+                <h1 class="card-title"></h1>
+                <p class="card-text"></p>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center" id="resultado">
+        <div class="row d-flex justify-content-center mt-3">
+            <div class="card text-center " style="width: 18rem; border-color: #7952b3;" >
+                <div class="card-body">
+                    <h4 class="card-title" id="reusltadoCartas">?</h4>
+                    <button type="button" class="btn btn-primary btn-sm">Siguente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-3">
+        <div class="card text-center border-success" style="width: 18rem; height: 14rem;" >
+            <div class="card-header text-success" >
+                ¿Que pokemon es?
+            </div>
+            <div class="card-body">
+                <button type="button" (click)="onAnswer($event)" *ngFor="let item of arrayNamePokemones.sort()" class="btn btn-outline-secondary btn-sm mt-2" style="width: 14rem;">{{item}}</button>
+                
+                <p class="card-text"></p>
+                
+            </div>
+        </div>
+    </div>
+</div>

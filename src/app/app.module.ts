@@ -20,6 +20,7 @@ import { DatabaseService } from './services/database/database.service';
 import { WordsComponent } from './words/words.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ChatService } from './services/chat/chat.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ChatService } from './services/chat/chat.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

@@ -20,7 +20,7 @@
             <div class="card text-center " style="width: 18rem; border-color: #7952b3;" >
                 <div class="card-body">
                     <h4 class="card-title" id="reusltadoCartas">?</h4>
-                    <button type="button" class="btn btn-primary btn-sm">Siguente</button>
+                    <button type="button" (click)="onNextQuestion()" class="btn btn-primary btn-sm">Siguente</button>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 ¿Que pokemon es?
             </div>
             <div class="card-body">
-                <button type="button" (click)="onAnswer($event)" *ngFor="let item of arrayNamePokemones.sort()" class="btn btn-outline-secondary btn-sm mt-2" style="width: 14rem;">{{item}}</button>
+                <button [disabled]="statusRespuestas" type="button" (click)="onAnswer($event)" *ngFor="let item of arrayNamePokemones.sort()" class="btn btn-outline-secondary btn-sm mt-2" style="width: 14rem;">{{item}}</button>
                 
                 <p class="card-text"></p>
                 

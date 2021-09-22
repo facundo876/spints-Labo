@@ -8,6 +8,7 @@ import { ChatComponent } from './pages/chat/chat.component';
 import { FormsModule } from '@angular/forms';
 import { MayoroMenorComponent } from './pages/mayoro-menor/mayoro-menor.component';
 import { PreguntadosComponent } from './pages/preguntados/preguntados.component';
+import { SopaDeLetrasComponent } from './pages/sopa-de-letras/sopa-de-letras.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { PreguntadosComponent } from './pages/preguntados/preguntados.component'
     HomeComponent,
     ChatComponent,
     MayoroMenorComponent,
-    PreguntadosComponent
+    PreguntadosComponent,
+    SopaDeLetrasComponent
   ],
   imports: [
     CommonModule,

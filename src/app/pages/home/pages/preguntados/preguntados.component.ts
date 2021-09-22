@@ -14,6 +14,7 @@ export class PreguntadosComponent implements OnInit {
   srcImagen:string = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg";
   optionCorrect: any = {};
   arrayNamePokemones: string[] = ["w"];
+  statusRespuestas:boolean = false;
 
   constructor(private apiPokemon: ApiPokemonService) {
       
@@ -24,9 +25,18 @@ export class PreguntadosComponent implements OnInit {
     this.setPokemones();
   }
 
-  onAnswer(event : MouseEvent){
-    let value = (event.target as HTMLButtonElement).innerHTML;
+  onNextQuestion(){
+    this.setPokemones();
+    this.statusRespuestas = false;
+    document.getElementById("optionCorrect")!.innerHTML = "?";
+    document.getElementById("reusltadoCartas")!.style.color = "black";
+    document.getElementById("reusltadoCartas")!.innerHTML = "?";
+  }
 
+  onAnswer(event : MouseEvent){
+    this.statusRespuestas = true;
+    let value = (event.target as HTMLButtonElement).innerHTML;
+    
     if(value == this.optionCorrect.name){
       this.animacionResultado("CORRECTO");
     }

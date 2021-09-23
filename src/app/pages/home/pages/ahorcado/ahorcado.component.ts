@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AhorcadoComponent implements OnInit {
 
-  arrayPalabras:string[] = ["PLATENTA","SOL","MARTE","NEPTURNO","TIERRA","SISTEMA","GALAXIA"];
+  arrayPalabras:string[] = ["PLANETA","SOL","MARTE","NEPTURNO","TIERRA","SISTEMA","GALAXIA"];
   palabraElegida:string[];
   palabraArmada:string[];
   cantidadLetrasCorectas:number = 0;
@@ -37,7 +37,7 @@ export class AhorcadoComponent implements OnInit {
 
     if(indices.length > 0){
       indices.forEach(index => {
-        //document.getElementById("txtLetra" + index)!.innerHTML = value; 
+        
         this.palabraArmada[index] = value;
         this.cantidadLetrasCorectas++;
       });
@@ -51,7 +51,6 @@ export class AhorcadoComponent implements OnInit {
       this.menuVolveraJugarDerrota = true;
     }
     //Victoria
-    //if(this.cantidadLetrasCorectas == this.palabraElegida.length){
       if(JSON.stringify(this.palabraArmada) == JSON.stringify(this.palabraElegida)){
       this.tecladoStatus = true;
       this.menuVolveraJugarVictoria = true;

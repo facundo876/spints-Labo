@@ -25,15 +25,14 @@ export class LoginComponent implements OnInit {
   }
 
   public async QuickAccessLogin(){
-    var value = {email : "facundo@gmail.com", password: "123456"}
-    try{
+    var value = {email : "facundo@gmail.com", password: "123456"};
 
-      await this.authService.login(value)
-    }catch(e : any){
-
-      this.setErrorMessage = e.message;
-    }
-    
+    (<HTMLInputElement>document.getElementById("floatingInput")).value = value.email;
+    (<HTMLInputElement>document.getElementById("floatingPassword")).value = value.password;
+    this.loginForm = new FormGroup({
+      email: new FormControl(value.email),
+      password: new FormControl(value.password)
+    });
   }
 
   public async onLogin(){

@@ -93,11 +93,11 @@ export class Sopa{
     private insertar(palabra:any, xi:number, yi:number, dir:any)
     {
 
-        var array: any[] = [];
+        var array: any = [];
         for(var i=0; i<palabra.length; i++){
 
             this.tablero[xi + i * dir[0]][yi + i * dir[1]] = palabra.charAt(i);
-            array.push([(xi + i * dir[0]),(yi + i * dir[1])]);
+            array.push((xi + i * dir[0])+""+(yi + i * dir[1]));
         }
         this.arrayDePoints.push(array);
     }

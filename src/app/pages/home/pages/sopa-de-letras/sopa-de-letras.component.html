@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row">
+    <div class="row justify-content-md-center">
         <div class="col">
             <div class="card text-center border-success mt-2" style="width: 35rem;" >
                 <div class="card-header text-success" >
@@ -13,7 +13,7 @@
                                 style="width: 40px; height: 40px;" 
                                 type="button" 
                                 class="m-1 btn btn-outline-secondary"
-                                (click)="onValueLetter(col,[i,j], $event)"
+                                (click)="onValueLetter(col,i+''+j, $event)"
                                 id="{{'btn' + i + j}}"
                             >{{col}}</button>
                         </div>                    
@@ -22,6 +22,7 @@
             </div>
         </div>
         <div class="col">
+            <h1>Sopa de letras!</h1>
             <div class="card text-center border-success mt-2" style="width: 35rem; border-color: #7952b3;" >
                 <div class="card-header text-success" >
                     Lista de palabras

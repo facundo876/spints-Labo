@@ -3,7 +3,7 @@
         <div class="col">
             <div class="card text-center border-success mt-2" style="width: 35rem;" >
                 <div class="card-header text-success" >
-                    Carta actual
+                    Encuentra las palabras
                 </div>
                 <div class="card-body">
                     <div class="row" *ngFor="let row of matrix; let i = index">
@@ -12,8 +12,9 @@
                                 *ngFor="let col of row; let j = index" 
                                 style="width: 40px; height: 40px;" 
                                 type="button" 
-                                class="btn btn-secondary  m-1"
-                                (click)="onValueLetter([i,j])"
+                                class="m-1 btn btn-outline-secondary"
+                                (click)="onValueLetter(col,[i,j], $event)"
+                                id="{{'btn' + i + j}}"
                             >{{col}}</button>
                         </div>                    
                     </div>
@@ -23,10 +24,12 @@
         <div class="col">
             <div class="card text-center border-success mt-2" style="width: 35rem; border-color: #7952b3;" >
                 <div class="card-header text-success" >
-                    Carta actual
+                    Lista de palabras
                 </div>
                 <div class="card-body">
-                    a
+                    <ul class="list-group list-group-flush" *ngFor="let item of palabras;">
+                        <li class="list-group-item" id="{{'txt' + item}}">{{item}}</li>
+                      </ul>
                 </div>
             </div>
         </div>

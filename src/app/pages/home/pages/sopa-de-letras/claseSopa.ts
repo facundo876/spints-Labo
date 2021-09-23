@@ -6,23 +6,27 @@ export class Sopa{
     readonly nAncho = 10;
     readonly nSize = 10;
     tablero:any[] = [];
-    palabras:any[] = ['FACUNDO','WALTER'];
+    palabras:any[];
     listaBk:any = [];
     tableroBk:any = [];
     caracteres:string = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    arrayDePoints: any[] = [];
+
+    constructor(palabras:any[]) {
+        this.palabras = palabras;       
+    }
 
     public generar(){
-        console.log(this.tablero);
+
         this.initTablero();
-        console.log("Tablero: " + this.tablero);
         this.distribuir();
-        console.log("Tablero: " + this.tablero);
-        console.log("Palabras: " + this.palabras);
-        console.log("ListaBk: " + this.listaBk);
-        console.log("............ tableroBk");
         this.dibuja();
-        console.log(this.tableroBk);
+
         return this.tableroBk;
+    }
+
+    get ArrayDepoints(){
+        return this.arrayDePoints;
     }
 
     private initTablero()
@@ -88,8 +92,14 @@ export class Sopa{
 
     private insertar(palabra:any, xi:number, yi:number, dir:any)
     {
-        for(var i=0; i<palabra.length; i++)
+
+        var array: any[] = [];
+        for(var i=0; i<palabra.length; i++){
+
             this.tablero[xi + i * dir[0]][yi + i * dir[1]] = palabra.charAt(i);
+            array.push([(xi + i * dir[0]),(yi + i * dir[1])]);
+        }
+        this.arrayDePoints.push(array);
     }
 
     private dibuja()

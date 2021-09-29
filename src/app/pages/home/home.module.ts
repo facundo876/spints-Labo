@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { MayoroMenorComponent } from './pages/mayoro-menor/mayoro-menor.component';
 import { PreguntadosComponent } from './pages/preguntados/preguntados.component';
 import { SopaDeLetrasComponent } from './pages/sopa-de-letras/sopa-de-letras.component';
+import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SopaDeLetrasComponent } from './pages/sopa-de-letras/sopa-de-letras.com
     ChatComponent,
     MayoroMenorComponent,
     PreguntadosComponent,
-    SopaDeLetrasComponent
+    SopaDeLetrasComponent,
+    EstadisticasComponent
   ],
   imports: [
     CommonModule,

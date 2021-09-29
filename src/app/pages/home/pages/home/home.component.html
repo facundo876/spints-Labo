@@ -1,12 +1,13 @@
 <div class="container" >
     <div class="row mt-2">
         <div class="col-sm" >
-            <button class="btn btn-secondary" (click)="onLogOut()">LogOut</button>
+            <button class="btn btn-secondary" style="width: 200px;"  (click)="onLogOut()">LogOut</button>
             <h2 class="mt-4">Games</h2>
-            <button class="btn text-white" [routerLink]="['/home/ahorcado']" style="background-color: #7952b3;">Ahorcado</button><br>
-            <button class="btn text-white mt-2" [routerLink]="['/home/mayoromenor']" style="background-color: #7952b3;">Mayor o Menor</button><br>
-            <button class="btn text-white mt-2" [routerLink]="['/home/preguntados']" style="background-color: #7952b3;">Preguntados</button><br>
-            <button class="btn text-white mt-2" [routerLink]="['/home/sopadeletras']" style="background-color: #533c9c;">Juego propio</button>
+            <button class="btn text-white" [routerLink]="['/home/ahorcado']"  style="width: 200px; background-color: #7952b3;">Ahorcado</button><br>
+            <button class="btn text-white mt-2" [routerLink]="['/home/mayoromenor']" style="width: 200px; background-color: #533c9c;">Mayor o Menor</button><br>
+            <button class="btn text-white mt-2" [routerLink]="['/home/preguntados']" style="width: 200px; background-color: #7952b3;">Preguntados</button><br>
+            <button class="btn text-white mt-2" [routerLink]="['/home/sopadeletras']" style="width: 200px; background-color: #533c9c;">Juego propio</button><br>
+            <button class="btn text-white mt-2" [routerLink]="['/home/estadisticas']" style="width: 200px; background-color: #7952b3;">Estadisticas</button><br>
         </div>
         <div class="col-sm">
             <app-chat></app-chat>

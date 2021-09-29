@@ -18,6 +18,7 @@ export class ChatService {
   loadMessage(){
     this.itemsCollection = this.afs.collection<IMessage>('chats', ref => 
                                                           ref.orderBy('fecha', 'desc').limit(25));  
+                                                          
     return this.itemsCollection.valueChanges().pipe(map((message : IMessage[]) => {
                                   
                                   this.chats = message.reverse();

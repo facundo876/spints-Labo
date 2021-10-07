@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ResultadosService } from 'src/app/services/resultados/resultados.service';
 
 @Component({
@@ -8,17 +10,21 @@ import { ResultadosService } from 'src/app/services/resultados/resultados.servic
 })
 export class EstadisticasComponent implements OnInit {
 
-  constructor(private results: ResultadosService) { }
+  constructor(public resultados : ResultadosService) { 
+    
+   }
 
   ngOnInit(): void {
+    
   }
 
+  
+
   onSaveResults(){
-    this.results.saveResults();
-    this.results.getIdItem();
+  console.log(this.resultados.resultados)
   }
 
   onUpdateResults(){
-    this.results.updateItem();
+
   }
 }

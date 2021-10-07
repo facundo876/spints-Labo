@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { IResultados } from 'src/app/interface/resultados.interface';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { ResultadosService } from 'src/app/services/resultados/resultados.service';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-ahorcado',
@@ -17,7 +21,8 @@ export class AhorcadoComponent implements OnInit {
   menuVolveraJugarDerrota:boolean = false;
   menuVolveraJugarVictoria:boolean = false;
 
-  constructor() {
+  constructor(
+              private resultado : ResultadosService) {
     this.palabraElegida = (this.arrayPalabras[Math.floor(Math.random() * this.arrayPalabras.length)]).split('');
     this.palabraArmada = this.palabraElegida.map<string>(m => m = "");
   }
@@ -49,11 +54,13 @@ export class AhorcadoComponent implements OnInit {
     if(this.vidas.length == 0){
       this.tecladoStatus = true;
       this.menuVolveraJugarDerrota = true;
+      this.guardarMensajes("perdio");
     }
     //Victoria
       if(JSON.stringify(this.palabraArmada) == JSON.stringify(this.palabraElegida)){
       this.tecladoStatus = true;
       this.menuVolveraJugarVictoria = true;
+      this.guardarMensajes("gano");
     }
 
     (event.target as HTMLButtonElement).disabled = true;
@@ -78,4 +85,21 @@ export class AhorcadoComponent implements OnInit {
     return indices;
   }
 
+  private guardarMensajes(value :string){
+
+    var results = {};
+    if(value == "gano")
+    {
+      results = {"ahorcados.wins" : firebase.firestore.FieldValue.increment(1),
+                 "ahorcados.total" : firebase.firestore.FieldValue.increment(1)}
+    }
+    else
+    {
+      results = {"ahorcados.losses" : firebase.firestore.FieldValue.increment(1),
+                 "ahorcados.total" : firebase.firestore.FieldValue.increment(1)}
+    }
+
+    this.resultado.save(results)
+  
+  }
 }

@@ -1,4 +1,51 @@
-<p>estadisticas works!</p>
 
-<button (click)="onSaveResults()" >Save</button>
-<button (click)="onUpdateResults()" >Update</button>
+<div class="container mt-4">
+    <div class= "text-white text-center" style="width: 50px;">
+      <div class="row text-center" style="background-color: green;">Wins</div>
+      <div class="row text-center" style="background-color: red;">Losses</div>
+      <div class="row text-center" style="background-color: aqua;">Total</div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr class="text-center">
+                <th scope="col" style="width: 100px;">Player</th>
+                <th scope="col">Ahorcado</th>
+                <th scope="col">Mayor o Menor</th>
+                <th scope="col">Preguntados</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of resultados.resultados">
+                <th scope="row" >{{item.id}}</th>
+                <td style="width: 250px;" >
+                  <div class="d-flex justify-content-center" >
+                    <div class="row w-50 text-center text-white">
+                      <div class="col" style="background-color: green;">{{item.data.ahorcados.wins}}</div>
+                      <div class="col" style="background-color:red;">{{item.data.ahorcados.losses}}</div>
+                      <div class="col" style="background-color:aqua;">{{item.data.ahorcados.total}}</div>
+                    </div> 
+                  </div>
+                </td>
+                <td style="width: 250px;" >
+                  <div class="d-flex justify-content-center">
+                    <div class="row w-50 text-center text-white">
+                      <div class="col" style="background-color: green;">{{item.data.mayoroMenor.wins}}</div>
+                      <div class="col" style="background-color:red;">{{item.data.mayoroMenor.losses}}</div>
+                      <div class="col" style="background-color: aqua;">{{item.data.mayoroMenor.total}}</div>
+                    </div> 
+                  </div>
+                </td>
+                <td style="width: 250px;" >
+                  <div class="d-flex justify-content-center">
+                    <div class="row w-50 text-center text-white">
+                      <div class="col" style="background-color: green;">{{item.data.preguntados.wins}}</div>
+                      <div class="col" style="background-color:red;">{{item.data.preguntados.losses}}</div>
+                      <div class="col" style="background-color: aqua;">{{item.data.preguntados.total}}</div>
+                    </div> 
+                  </div>
+                </td>
+              </tr>
+          </table>
+    </div>
+</div>

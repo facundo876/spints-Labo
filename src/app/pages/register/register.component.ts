@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ResultadosService } from 'src/app/services/resultados/resultados.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private resultado : ResultadosService) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,7 @@ export class RegisterComponent implements OnInit {
     try{
       await this.authService.register(this.registerForm.value)
       .then(()=>{
+        this.resultado.crateResults(this.registerForm.value.email)
         this.authService.login(this.registerForm.value);
       })
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ResultadosService } from 'src/app/services/resultados/resultados.service';
+import firebase from 'firebase/app';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-mayoro-menor',
@@ -13,7 +16,8 @@ export class MayoroMenorComponent implements OnInit {
   proximaCarta!:number;
   statusCarta:boolean = true;
 
-  constructor() {
+  constructor(private resultado : ResultadosService,
+              public authService: AuthService) {
     this.generarCartasRandom();
    }
 
@@ -80,6 +84,23 @@ export class MayoroMenorComponent implements OnInit {
         }
         i++;
       }, 1000)
+      this.guardarMensajes(resultado);
   }
 
+  private guardarMensajes(value :string){
+
+    var results = {};
+    if(value == "CORRECTO")
+    {
+      results = {"mayoroMenor.wins" : firebase.firestore.FieldValue.increment(1),
+                 "mayoroMenor.total" : firebase.firestore.FieldValue.increment(1)}
+    }
+    else
+    {
+      results = {"mayoroMenor.losses" : firebase.firestore.FieldValue.increment(1),
+                 "mayoroMenor.total" : firebase.firestore.FieldValue.increment(1)}
+    }
+
+    this.resultado.save(results);
+  }
 }

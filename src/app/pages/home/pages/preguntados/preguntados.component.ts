@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IPokemon } from 'src/app/interface/pokemon.interface';
 import { ApiPokemonService } from 'src/app/services/apiPokemon/api-pokemon.service';
+import firebase from 'firebase/app';
+import { ResultadosService } from 'src/app/services/resultados/resultados.service';
 
 @Component({
   selector: 'app-preguntados',
@@ -16,7 +18,7 @@ export class PreguntadosComponent implements OnInit {
   arrayNamePokemones: string[] = ["w"];
   statusRespuestas:boolean = false;
 
-  constructor(private apiPokemon: ApiPokemonService) {
+  constructor(private apiPokemon: ApiPokemonService, private resultado : ResultadosService) {
       
    }
 
@@ -95,5 +97,23 @@ export class PreguntadosComponent implements OnInit {
         }
         i++;
       }, 1000)
+      this.guardarMensajes(resultado)
+  }
+
+  private guardarMensajes(value :string){
+
+    var results = {};
+    if(value == "CORRECTO")
+    {
+      results = {"preguntados.wins" : firebase.firestore.FieldValue.increment(1),
+                 "preguntados.total" : firebase.firestore.FieldValue.increment(1)}
+    }
+    else
+    {
+      results = {"preguntados.losses" : firebase.firestore.FieldValue.increment(1),
+                 "preguntados.total" : firebase.firestore.FieldValue.increment(1)}
+    }
+
+    this.resultado.save(results);
   }
 }
